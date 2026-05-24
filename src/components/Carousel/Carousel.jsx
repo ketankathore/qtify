@@ -22,6 +22,7 @@ const getVisibleCount = () => {
 const Carousel = ({ items, renderItem }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleCount, setVisibleCount] = useState(() => getVisibleCount());
+  const [showAllTitles, setShowAllTitles] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {
@@ -39,19 +40,16 @@ const Carousel = ({ items, renderItem }) => {
   const canGoNext = currentIndex + visibleCount < items.length;
 
   const goPrev = () => {
+    setShowAllTitles(false);
     setCurrentIndex((prev) => Math.max(0, prev - visibleCount));
   };
 
   const goNext = () => {
+    setShowAllTitles(false);
     setCurrentIndex((prev) => Math.min(items.length - visibleCount, prev + visibleCount));
   };
 
   const isVisible = (index) => index >= currentIndex && index < currentIndex + visibleCount;
-  const hiddenTitles = items
-    .map((item, index) => ({ item, index }))
-    .filter(({ index }) => !isVisible(index))
-    .map(({ item }) => item.title)
-    .filter(Boolean);
 
   return (
     <div className="carouselWrapper">
@@ -62,14 +60,8 @@ const Carousel = ({ items, renderItem }) => {
             className="carouselItem"
             style={{ display: isVisible(index) ? 'flex' : 'none' }}
           >
-            {renderItem(item, isVisible(index))}
+            {renderItem(item, showAllTitles || isVisible(index))}
           </div>
-        ))}
-      </div>
-
-      <div className="carouselHiddenTitles" aria-hidden="true">
-        {hiddenTitles.map((title) => (
-          <span key={title}>{title}</span>
         ))}
       </div>
 
