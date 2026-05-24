@@ -19,7 +19,7 @@ const getVisibleCount = () => {
   return 2;
 };
 
-const Carousel = ({ items, renderItem }) => {
+const Carousel = ({ items, renderItem, showControls = true }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleCount, setVisibleCount] = useState(() => getVisibleCount());
   const [showAllTitles, setShowAllTitles] = useState(true);
@@ -65,26 +65,28 @@ const Carousel = ({ items, renderItem }) => {
         ))}
       </div>
 
-      <div className="carouselControls">
-        <button
-          type="button"
-          className="carousel-prev carouselNavButton"
-          aria-label="Previous slide"
-          onClick={goPrev}
-          disabled={!canGoPrev}
-        >
-          <LeftNavButton />
-        </button>
-        <button
-          type="button"
-          className="carousel-next carouselNavButton"
-          aria-label="Next slide"
-          onClick={goNext}
-          disabled={!canGoNext}
-        >
-          <RightNavButton />
-        </button>
-      </div>
+      {showControls ? (
+        <div className="carouselControls">
+          <button
+            type="button"
+            className="carousel-prev carouselNavButton"
+            aria-label="Previous slide"
+            onClick={goPrev}
+            disabled={!canGoPrev}
+          >
+            <LeftNavButton />
+          </button>
+          <button
+            type="button"
+            className="carousel-next carouselNavButton"
+            aria-label="Next slide"
+            onClick={goNext}
+            disabled={!canGoNext}
+          >
+            <RightNavButton />
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 };

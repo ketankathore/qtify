@@ -88,6 +88,7 @@ const SongsSection = () => {
       ) : filteredSongs.length ? (
         <Carousel
           items={filteredSongs}
+          showControls={false}
           renderItem={(song, isVisible) => <Card item={song} kind="song" showTitle={isVisible} />}
         />
       ) : (
