@@ -16,7 +16,10 @@ const HeroSection = () => {
         </div>
       </div>
       <div className="heroVisual">
-        <img src={headphones} alt="QTify headphones illustration" className="heroImage" />
+        <div className="heroMediaCard">
+          <p className="heroPromoText">100 Thousand Songs, ad-free</p>
+          <img src={headphones} alt="QTify headphones illustration" className="heroImage" />
+        </div>
       </div>
     </section>
   );

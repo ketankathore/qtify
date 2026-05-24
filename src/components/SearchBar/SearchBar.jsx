@@ -9,8 +9,9 @@ const SearchBar = () => {
     <form className="searchBar" role="search" onSubmit={handleSubmit}>
       <input
         type="text"
+        name="search"
         className="searchInput"
-        placeholder="Search albums or songs"
+        placeholder="search albums or songs"
         aria-label="Search albums or songs"
       />
       <button type="submit" className="searchButton" aria-label="Search">
