@@ -86,7 +86,10 @@ const SongsSection = () => {
       ) : error ? (
         <p className="sectionStatus">{error}</p>
       ) : filteredSongs.length ? (
-        <Carousel items={filteredSongs} renderItem={(song) => <Card item={song} kind="song" />} />
+        <Carousel
+          items={filteredSongs}
+          renderItem={(song, isVisible) => <Card item={song} kind="song" showTitle={isVisible} />}
+        />
       ) : (
         <p className="sectionStatus">No songs found for this genre.</p>
       )}

@@ -46,7 +46,12 @@ const AlbumsSection = ({ title, endpoint, mode = 'grid' }) => {
     }
 
     if (mode === 'carousel' && !expanded) {
-      return <Carousel items={items} renderItem={(album) => <Card album={album} />} />;
+      return (
+        <Carousel
+          items={items}
+          renderItem={(album, isVisible) => <Card album={album} showTitle={isVisible} />}
+        />
+      );
     }
 
     return (

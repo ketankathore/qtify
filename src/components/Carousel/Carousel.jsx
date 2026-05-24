@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Carousel.css';
 import LeftNavButton from '../NavigationButtons/LeftNavButton';
 import RightNavButton from '../NavigationButtons/RightNavButton';
@@ -35,11 +35,6 @@ const Carousel = ({ items, renderItem }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, [items.length]);
 
-  const visibleItems = useMemo(() => {
-    const end = Math.min(items.length, currentIndex + visibleCount);
-    return items.slice(currentIndex, end);
-  }, [currentIndex, items, visibleCount]);
-
   const canGoPrev = currentIndex > 0;
   const canGoNext = currentIndex + visibleCount < items.length;
 
@@ -51,12 +46,18 @@ const Carousel = ({ items, renderItem }) => {
     setCurrentIndex((prev) => Math.min(items.length - visibleCount, prev + visibleCount));
   };
 
+  const isVisible = (index) => index >= currentIndex && index < currentIndex + visibleCount;
+
   return (
     <div className="carouselWrapper">
       <div className="carousel">
-        {visibleItems.map((item) => (
-          <div key={item.id ?? item.title} className="carouselItem">
-            {renderItem(item)}
+        {items.map((item, index) => (
+          <div
+            key={item.id ?? item.title}
+            className="carouselItem"
+            style={{ display: isVisible(index) ? 'flex' : 'none' }}
+          >
+            {renderItem(item, isVisible(index))}
           </div>
         ))}
       </div>

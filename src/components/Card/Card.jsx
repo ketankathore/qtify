@@ -14,9 +14,10 @@ const getLabel = (count, kind) => {
   return kind === 'song' ? `${formattedCount} likes` : `${formattedCount} follows`;
 };
 
-const Card = ({ item, album, kind = 'album' }) => {
+const Card = ({ item, album, kind = 'album', showTitle = true }) => {
   const data = item ?? album;
   const count = getCount(data, kind);
+  const title = showTitle ? data?.title || 'Untitled' : '';
 
   return (
     <article className="albumCard">
@@ -44,7 +45,7 @@ const Card = ({ item, album, kind = 'album' }) => {
         </div>
       </div>
       <div className="albumDetails">
-        <h3>{data?.title || 'Untitled'}</h3>
+        {showTitle ? <h3>{title}</h3> : null}
       </div>
     </article>
   );
