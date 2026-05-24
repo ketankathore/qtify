@@ -1,0 +1,28 @@
+.pageSection {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 12px 24px 56px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.sectionHeader h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: var(--white);
+}
+
+.sectionHeaderAction {
+  display: flex;
+  align-items: center;
+}
+
+.sectionContent {
+  width: 100%;
+}

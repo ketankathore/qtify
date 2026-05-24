@@ -1,0 +1,87 @@
+.heroSection {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 40px 24px 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.heroCopy {
+  flex: 1;
+}
+
+.heroBadge {
+  display: inline-block;
+  background: rgba(50, 255, 138, 0.12);
+  color: var(--green);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.heroCopy h1 {
+  font-size: clamp(2.2rem, 3vw, 3.1rem);
+  line-height: 1.05;
+  margin: 0 0 16px;
+  color: var(--white);
+}
+
+.heroDescription {
+  color: var(--muted);
+  font-size: 1.06rem;
+  line-height: 1.75;
+  max-width: 620px;
+  margin: 0 0 20px;
+}
+
+.heroMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  color: rgba(255, 255, 255, 0.82);
+  font-weight: 500;
+}
+
+.heroMeta span {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 10px 14px;
+  border-radius: 999px;
+}
+
+.heroVisual {
+  flex: 0 0 420px;
+  display: flex;
+  justify-content: center;
+}
+
+.heroImage {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 32px;
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 900px) {
+  .heroSection {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .heroDescription {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .heroMeta {
+    justify-content: center;
+  }
+
+  .heroVisual {
+    flex-basis: auto;
+    width: 100%;
+  }
+}

@@ -1,0 +1,11 @@
+.topAlbumsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.topAlbumsStatus {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+}

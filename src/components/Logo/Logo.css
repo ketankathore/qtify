@@ -1,0 +1,18 @@
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoImage {
+  width: 52px;
+  height: 52px;
+  border-radius: 18px;
+}
+
+.logoText {
+  color: var(--white);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}

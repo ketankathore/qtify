@@ -1,0 +1,30 @@
+.songsTabs {
+  min-height: 48px;
+}
+
+.songsTabs .MuiTabs-flexContainer {
+  gap: 12px;
+}
+
+.songsTab {
+  color: rgba(255, 255, 255, 0.86) !important;
+  text-transform: none !important;
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  min-height: 42px;
+  padding: 0 18px !important;
+}
+
+.songsTab.Mui-selected {
+  color: #32ff8a !important;
+  background: rgba(50, 255, 138, 0.12);
+  border-color: rgba(50, 255, 138, 0.25);
+}
+
+.sectionStatus {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+}
