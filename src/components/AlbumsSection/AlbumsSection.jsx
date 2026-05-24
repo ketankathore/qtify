@@ -8,7 +8,7 @@ const AlbumsSection = ({ title, endpoint, mode = 'grid' }) => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -67,6 +67,7 @@ const AlbumsSection = ({ title, endpoint, mode = 'grid' }) => {
           className="collapseButton"
           onClick={() => setExpanded((prev) => !prev)}
           aria-expanded={expanded}
+          aria-label={expanded ? 'Show All' : 'Collapse'}
         >
           {expanded ? 'Collapse' : 'Show All'}
         </button>

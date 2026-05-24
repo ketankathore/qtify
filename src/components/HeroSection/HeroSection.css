@@ -62,8 +62,9 @@
   width: min(100%, 420px);
   padding: 18px;
   border-radius: 28px;
-  background: rgba(50, 255, 138, 0.12);
+  background: #09090b;
   box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .heroPromoText {

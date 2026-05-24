@@ -11,7 +11,7 @@ const SearchBar = () => {
         type="text"
         name="search"
         className="searchInput"
-        placeholder="search"
+        placeholder="search a song"
         aria-label="Search albums or songs"
       />
       <button type="submit" className="searchButton" aria-label="Search">
