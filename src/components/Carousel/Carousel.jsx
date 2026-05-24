@@ -47,6 +47,11 @@ const Carousel = ({ items, renderItem }) => {
   };
 
   const isVisible = (index) => index >= currentIndex && index < currentIndex + visibleCount;
+  const hiddenTitles = items
+    .map((item, index) => ({ item, index }))
+    .filter(({ index }) => !isVisible(index))
+    .map(({ item }) => item.title)
+    .filter(Boolean);
 
   return (
     <div className="carouselWrapper">
@@ -59,6 +64,12 @@ const Carousel = ({ items, renderItem }) => {
           >
             {renderItem(item, isVisible(index))}
           </div>
+        ))}
+      </div>
+
+      <div className="carouselHiddenTitles" aria-hidden="true">
+        {hiddenTitles.map((title) => (
+          <span key={title}>{title}</span>
         ))}
       </div>
 
