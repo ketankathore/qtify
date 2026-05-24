@@ -18,13 +18,14 @@ const Card = ({ item, album, kind = 'album', showTitle = true }) => {
   const data = item ?? album;
   const count = getCount(data, kind);
   const title = showTitle ? data?.title || 'Untitled' : '';
+  const altText = showTitle && data?.title ? `${data.title} cover` : 'Card cover';
 
   return (
     <article className="albumCard">
       <div className="albumMediaWrapper">
         <img
           src={data?.image}
-          alt={data?.title ? `${data.title} cover` : 'Card cover'}
+          alt={altText}
           className="albumImage"
         />
         <div className="albumChipWrapper">
